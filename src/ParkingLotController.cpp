@@ -36,7 +36,6 @@ std::vector<int> ParkingLotController::getAvailableSlots() {
 }
 
 void ParkingLotController::park(std::string carRegistrationNumber, std::string color) {
-    //invoke ticketing helper
     Car carWaitingToPark = Car(carRegistrationNumber, color);
 
     if(this->isSlotAvailable()) {
@@ -53,7 +52,6 @@ void ParkingLotController::allotAvailableParkingSlot(Car carReadyToPark) {
     this->availableSlots.pop();
 
     Slot allotedSlot = Slot(firstAvailableSlot);
-
 }
 
 

@@ -18,11 +18,9 @@
 
 class ParkingLotController {
 private:
-
-public:
     std::unordered_map<int, Car> cars;
     std::priority_queue<int, std::vector<int>, std::greater<int> > availableSlots;
-
+public:
     ParkingLotController(int);
     virtual ~ParkingLotController();
 

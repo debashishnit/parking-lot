@@ -13,7 +13,7 @@ public:
     void operator()() {
         Slot s(4);
 
-        ASSERTM("wrong constructor", s.getSlotNumber() == 3);
+        ASSERTM("wrong constructor", s.getSlotNumber() == 4);
     };
 };
 
