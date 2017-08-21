@@ -4,7 +4,9 @@
 #include "cute_runner.h"
 
 void thisIsATest() {
-	ASSERTM("start writing tests", false);	
+    int sum = 0;
+	ASSERTM("start writing tests", sum == 2);
+
 }
 
 void runAllTests(int argc, char const *argv[]){
