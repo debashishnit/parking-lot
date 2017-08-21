@@ -52,6 +52,18 @@ void ParkingLotController::allotAvailableParkingSlot(Car carReadyToPark) {
     this->availableSlots.pop();
 
     Slot allotedSlot = Slot(firstAvailableSlot);
+
+    ParkingQueryHelper::addToCarColorSlotMap(carReadyToPark, allotedSlot);
+
+    ParkingQueryHelper::addToColorRegistrationNumberMap(carReadyToPark);
+}
+
+std::vector<std::string> ParkingLotController::getRegistrationNumbersForCarsWithColor(std::string color) {
+    return ParkingQueryHelper::getRegistrationNumbersForCarsWithColor(color);
+}
+
+std::vector<int> ParkingLotController::getSlotNumbersForCarsWithColor(std::string color) {
+    return ParkingQueryHelper::getSlotNumbersForCarsWithColor(color);
 }
 
 

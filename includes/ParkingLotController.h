@@ -10,6 +10,7 @@
 
 #include "../includes/Car.h"
 #include "../includes/Slot.h"
+#include "../includes/ParkingQueryHelper.h"
 
 #include <algorithm>
 #include <unordered_map>
@@ -29,6 +30,9 @@ public:
     void allotAvailableParkingSlot(Car);
 
     std::vector<int> getAvailableSlots();
+
+    static std::vector<std::string> getRegistrationNumbersForCarsWithColor(std::string);
+    static std::vector<int> getSlotNumbersForCarsWithColor(std::string);
 
     void releaseSlot(int);
 

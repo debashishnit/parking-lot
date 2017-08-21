@@ -8,6 +8,8 @@ CPP_SRCS += \
 ../src/Car_test.cpp \
 ../src/ParkingLotController.cpp \
 ../src/ParkingLotController_test.cpp \
+../src/ParkingQueryHelper.cpp \
+../src/ParkingQueryHelper_test.cpp \
 ../src/Slot.cpp \
 ../src/Slot_test.cpp \
 ../src/Test.cpp 
@@ -17,6 +19,8 @@ OBJS += \
 ./src/Car_test.o \
 ./src/ParkingLotController.o \
 ./src/ParkingLotController_test.o \
+./src/ParkingQueryHelper.o \
+./src/ParkingQueryHelper_test.o \
 ./src/Slot.o \
 ./src/Slot_test.o \
 ./src/Test.o 
@@ -26,6 +30,8 @@ CPP_DEPS += \
 ./src/Car_test.d \
 ./src/ParkingLotController.d \
 ./src/ParkingLotController_test.d \
+./src/ParkingQueryHelper.d \
+./src/ParkingQueryHelper_test.d \
 ./src/Slot.d \
 ./src/Slot_test.d \
 ./src/Test.d 

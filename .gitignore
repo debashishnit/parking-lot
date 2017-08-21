@@ -32,3 +32,5 @@
 *.app
 /Debug Gcov/
 /parking-lot.xml
+/.cproject
+/.project
