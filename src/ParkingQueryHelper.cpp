@@ -11,6 +11,7 @@
 
 std::unordered_map<std::string, std::vector<std::string> > ParkingQueryHelper::colorRegistrationNumberMap;
 std::unordered_map<std::string, std::vector<int> > ParkingQueryHelper::carColorSlotMap;
+std::unordered_map<std::string, int> ParkingQueryHelper::registrationNumberSlotNumberMap;
 
 ParkingQueryHelper::ParkingQueryHelper() {
     // TODO Auto-generated constructor stub
@@ -29,6 +30,14 @@ std::vector<std::string> ParkingQueryHelper::getRegistrationNumbersForCarsWithCo
     }
 
     return res;
+}
+
+int ParkingQueryHelper::getSlotNumberForRegistrationNumber(std::string registrationNumber) {
+    if(registrationNumberSlotNumberMap.find(registrationNumber) != registrationNumberSlotNumberMap.end()) {
+        return registrationNumberSlotNumberMap[registrationNumber];
+    }
+
+    return -1;
 }
 
 std::vector<int> ParkingQueryHelper::getSlotNumbersForCarsWithColor(std::string color) {
@@ -57,6 +66,10 @@ void ParkingQueryHelper::addToColorRegistrationNumberMap(Car carReadyToPark) {
     colorRegistrationNumberMap[carReadyToPark.getColor()] = registrationNumberListForCarsWithColor;
 }
 
+void ParkingQueryHelper::addToSlotNumberRegistrationNumberMap(Car carReadyToPark, Slot allotedSlot) {
+    registrationNumberSlotNumberMap[carReadyToPark.getRegistrationNumber()] = allotedSlot.getSlotNumber();
+}
+
 void ParkingQueryHelper::deleteFromCarColorSlotMap(Car c, Slot s) {
     std::vector<int> slotsOccupiedByCarWithColor = carColorSlotMap[c.getColor()];
 
@@ -71,4 +84,10 @@ void ParkingQueryHelper::deleteFromColorRegistrationNumberMap(Car c) {
     registrationNumbersOfCarsWithColor.erase(remove(registrationNumbersOfCarsWithColor.begin(), registrationNumbersOfCarsWithColor.end(), c.getRegistrationNumber()), registrationNumbersOfCarsWithColor.end());
 
     colorRegistrationNumberMap[c.getColor()] = registrationNumbersOfCarsWithColor;
+}
+
+void ParkingQueryHelper::deleteFromSlotNumberRegistrationNumberMap(Car c) {
+    if(registrationNumberSlotNumberMap.find(c.getRegistrationNumber()) != registrationNumberSlotNumberMap.end()) {
+        registrationNumberSlotNumberMap.erase(c.getRegistrationNumber());
+    }
 }

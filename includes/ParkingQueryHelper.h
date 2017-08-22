@@ -22,6 +22,7 @@ private:
 
     static std::unordered_map<std::string, std::vector<std::string> > colorRegistrationNumberMap;
     static std::unordered_map<std::string, std::vector<int> > carColorSlotMap;
+    static std::unordered_map<std::string, int> registrationNumberSlotNumberMap;
 public:
     static std::vector<std::string> getRegistrationNumbersForCarsWithColor(std::string);
     static std::vector<int> getSlotNumbersForCarsWithColor(std::string);
@@ -29,9 +30,11 @@ public:
 
     static void addToCarColorSlotMap(Car, Slot);
     static void addToColorRegistrationNumberMap(Car);
+    static void addToSlotNumberRegistrationNumberMap(Car, Slot);
 
     static void deleteFromCarColorSlotMap(Car, Slot);
     static void deleteFromColorRegistrationNumberMap(Car);
+    static void deleteFromSlotNumberRegistrationNumberMap(Car);
 };
 
 #endif /* PARKINGQUERYHELPER_H_ */

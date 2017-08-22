@@ -30,7 +30,7 @@ public:
         //registrationNumberForCarsWithColor = pc1.getRegistrationNumbersForCarsWithColor("White");
         //ASSERTM(" occupied registration number is " , registrationNumberForCarsWithColor[0].compare("KA-01-HH-9999") == 0);
 
-        bool succ = false;
+        int succ = 0;
 
         succ = pc1.park("KA-01-HH-9969", "White");
         succ = pc1.park("KA-01-HH-9979", "Black");
@@ -41,10 +41,12 @@ public:
 
         succ = pc1.park("KA-01-HH-9926", "White");
 
-        ASSERTM(" add successfully done " , succ == false);
+        ASSERTM(" add successfully done " , succ == -1);
 
         registrationNumberForCarsWithColor = pc1.getRegistrationNumbersForCarsWithColor("White");
-        ASSERTM(" occupied registration number is " , registrationNumberForCarsWithColor[0].compare("KA-01-HH-9999") == 0);
+        ASSERTM(" occupied registration number is " , registrationNumberForCarsWithColor[0].compare("KA-01-HH-9969") == 0);
+
+        ASSERTM(" slot occupied by car with registration number KA-01-HH-9991 is correct" , pc1.getSlotNumberForRegistrationNumber("KA-01-HH-9991") == 5);
 
         succ = pc1.releaseSlot(3);
         succ = pc1.releaseSlot(4);

@@ -64,6 +64,8 @@ int ParkingLotController::allotAvailableParkingSlot(Car carReadyToPark) {
 
     ParkingQueryHelper::addToColorRegistrationNumberMap(carReadyToPark);
 
+    ParkingQueryHelper::addToSlotNumberRegistrationNumberMap(carReadyToPark, allotedSlot);
+
     return firstAvailableSlot;
 }
 
@@ -73,6 +75,10 @@ std::vector<std::string> ParkingLotController::getRegistrationNumbersForCarsWith
 
 std::vector<int> ParkingLotController::getSlotNumbersForCarsWithColor(std::string color) {
     return ParkingQueryHelper::getSlotNumbersForCarsWithColor(color);
+}
+
+int ParkingLotController::getSlotNumberForRegistrationNumber(std::string registrationNumber) {
+    return ParkingQueryHelper::getSlotNumberForRegistrationNumber(registrationNumber);
 }
 
 bool ParkingLotController::releaseSlot(int slotNumber) {
@@ -86,6 +92,8 @@ bool ParkingLotController::releaseSlot(int slotNumber) {
         ParkingQueryHelper::deleteFromCarColorSlotMap((*it).second , Slot(slotNumber));
 
         ParkingQueryHelper::deleteFromColorRegistrationNumberMap((*it).second);
+
+        ParkingQueryHelper::deleteFromSlotNumberRegistrationNumberMap((*it).second);
 
         this->cars.erase((*it).first);
 

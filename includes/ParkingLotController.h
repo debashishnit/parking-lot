@@ -34,6 +34,7 @@ public:
 
     static std::vector<std::string> getRegistrationNumbersForCarsWithColor(std::string);
     static std::vector<int> getSlotNumbersForCarsWithColor(std::string);
+    static int getSlotNumberForRegistrationNumber(std::string);
 
     bool releaseSlot(int);
     void showStatus();

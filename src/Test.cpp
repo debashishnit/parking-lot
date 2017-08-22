@@ -94,6 +94,15 @@ void readData(std::istream & file) {
                 std::cout << result << std::endl;
                 break;
             }
+            case cmdSlotNumberForRegistrationNumber: {
+                int slotNumber = -1;
+
+                if((slotNumber = pc.getSlotNumberForRegistrationNumber(args[0])) > 0) {
+                    std::cout << std::to_string(slotNumber) << std::endl;
+                } else {
+                    std::cout << "Not Found." << std::endl;
+                }
+            }
         }
 
     }
@@ -125,7 +134,8 @@ int main(int argc, char const *argv[]){
 
     Initialize();
 
-    runAllTests(argc,argv);
+    const char* * argV = nullptr;
+    runAllTests(0,argV);
 
     if ( argc > 1 )
     {
