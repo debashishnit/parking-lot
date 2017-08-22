@@ -96,7 +96,7 @@ bool ParkingLotController::releaseSlot(int slotNumber) {
 }
 
 
-void ParkingLotController::status() {
+void ParkingLotController::showStatus() {
     std::unordered_map<int, Car> cars = this->cars;
 
     if(cars.size() == 0) std::cout << "empty " << std::endl;

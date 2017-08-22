@@ -36,7 +36,7 @@ public:
     static std::vector<int> getSlotNumbersForCarsWithColor(std::string);
 
     bool releaseSlot(int);
-    void status();
+    void showStatus();
 };
 
 #endif /* PARKINGLOTCONTROLLER_H_ */

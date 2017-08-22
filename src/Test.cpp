@@ -42,7 +42,6 @@ void readData(std::istream & file) {
             }
         }
 
-        std::cout << cmd << std::endl;
         switch (s_mapCommandValues[cmd]) {
             case cmdCreateParkingLot: {
                 int n = std::stoi(args[0]);
@@ -61,8 +60,40 @@ void readData(std::istream & file) {
                     std::cout << "Sorry, parking lot is full" << std::endl;
                 break;
             }
-            default:
+            case cmdleave: {
+                int slotNumber = std::stoi(args[0]);
+                if(pc.releaseSlot(slotNumber))
+                    std::cout << "Slot number " << slotNumber << " is free." << std::endl;
                 break;
+            }
+            case cmdStatus: {
+                pc.showStatus();
+                break;
+            }
+            case cmdRegistrationNumbersForCarsWithColor: {
+                std::vector<std::string> registrationNumberList;
+                registrationNumberList = pc.getRegistrationNumbersForCarsWithColor(args[0]);
+                std::string result = "";
+                for(int i=0; i<registrationNumberList.size(); i++) {
+                    if(result != "") result += ", ";
+
+                    result += registrationNumberList[i];
+                }
+                std::cout << result << std::endl;
+                break;
+            }
+            case cmdSlotNumbersForCarsWithColor: {
+                std::vector<int> slotNumbers;
+                slotNumbers = pc.getSlotNumbersForCarsWithColor(args[0]);
+                std::string result = "";
+                for(int i=0; i<slotNumbers.size(); i++) {
+                    if(result != "") result += ", ";
+
+                    result += std::to_string(slotNumbers[i]) ;
+                }
+                std::cout << result << std::endl;
+                break;
+            }
         }
 
     }
