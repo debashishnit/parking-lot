@@ -29,6 +29,9 @@ public:
 
     static void addToCarColorSlotMap(Car, Slot);
     static void addToColorRegistrationNumberMap(Car);
+
+    static void deleteFromCarColorSlotMap(Car, Slot);
+    static void deleteFromColorRegistrationNumberMap(Car);
 };
 
 #endif /* PARKINGQUERYHELPER_H_ */

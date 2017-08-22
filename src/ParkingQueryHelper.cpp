@@ -56,3 +56,19 @@ void ParkingQueryHelper::addToColorRegistrationNumberMap(Car carReadyToPark) {
 
     colorRegistrationNumberMap[carReadyToPark.getColor()] = registrationNumberListForCarsWithColor;
 }
+
+void ParkingQueryHelper::deleteFromCarColorSlotMap(Car c, Slot s) {
+    std::vector<int> slotsOccupiedByCarWithColor = carColorSlotMap[c.getColor()];
+
+    slotsOccupiedByCarWithColor.erase(std::remove(slotsOccupiedByCarWithColor.begin(), slotsOccupiedByCarWithColor.end(), s.getSlotNumber()), slotsOccupiedByCarWithColor.end());
+
+    carColorSlotMap[c.getColor()] = slotsOccupiedByCarWithColor;
+}
+
+void ParkingQueryHelper::deleteFromColorRegistrationNumberMap(Car c) {
+    std::vector<std::string> registrationNumbersOfCarsWithColor = colorRegistrationNumberMap[c.getColor()];
+
+    registrationNumbersOfCarsWithColor.erase(remove(registrationNumbersOfCarsWithColor.begin(), registrationNumbersOfCarsWithColor.end(), c.getRegistrationNumber()), registrationNumbersOfCarsWithColor.end());
+
+    colorRegistrationNumberMap[c.getColor()] = registrationNumbersOfCarsWithColor;
+}

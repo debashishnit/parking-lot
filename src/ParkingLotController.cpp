@@ -66,4 +66,19 @@ std::vector<int> ParkingLotController::getSlotNumbersForCarsWithColor(std::strin
     return ParkingQueryHelper::getSlotNumbersForCarsWithColor(color);
 }
 
+void ParkingLotController::releaseSlot(int slotNumber) {
+    std::unordered_map<int, Car>::iterator it;
+
+    if(this->cars.find(slotNumber) != this->cars.end()) {
+        it = this->cars.find(slotNumber);
+
+        this->availableSlots.push(slotNumber);
+
+        ParkingQueryHelper::deleteFromCarColorSlotMap((*it).second , Slot(slotNumber));
+
+        ParkingQueryHelper::deleteFromColorRegistrationNumberMap((*it).second);
+
+        this->cars.erase((*it).first);
+    }
+}
 
