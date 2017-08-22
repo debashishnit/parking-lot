@@ -35,13 +35,16 @@ std::vector<int> ParkingLotController::getAvailableSlots() {
     return slotAvailable;
 }
 
-void ParkingLotController::park(std::string carRegistrationNumber, std::string color) {
+bool ParkingLotController::park(std::string carRegistrationNumber, std::string color) {
     Car carWaitingToPark = Car(carRegistrationNumber, color);
 
     if(this->isSlotAvailable()) {
         this->allotAvailableParkingSlot(carWaitingToPark);
+
+        return true;
     }
 
+    return false;
 }
 
 void ParkingLotController::allotAvailableParkingSlot(Car carReadyToPark) {
@@ -66,7 +69,7 @@ std::vector<int> ParkingLotController::getSlotNumbersForCarsWithColor(std::strin
     return ParkingQueryHelper::getSlotNumbersForCarsWithColor(color);
 }
 
-void ParkingLotController::releaseSlot(int slotNumber) {
+bool ParkingLotController::releaseSlot(int slotNumber) {
     std::unordered_map<int, Car>::iterator it;
 
     if(this->cars.find(slotNumber) != this->cars.end()) {
@@ -79,6 +82,25 @@ void ParkingLotController::releaseSlot(int slotNumber) {
         ParkingQueryHelper::deleteFromColorRegistrationNumberMap((*it).second);
 
         this->cars.erase((*it).first);
+
+        return true;
     }
+
+    return false;
 }
 
+
+void ParkingLotController::status() {
+    std::unordered_map<int, Car> cars = this->cars;
+
+    if(cars.size() == 0) std::cout << "empty " << std::endl;
+    else{
+        std::cout << "Slot No.    " << "Registration No.    " << "Colour" << std::endl;
+        for(std::unordered_map<int,Car>::iterator it=cars.begin(); it != cars.end(); it++){
+
+            std::cout << it->first << "            " << it->second.getRegistrationNumber() << "       " << it->second.getColor() << std::endl;
+
+        }
+    }
+
+}

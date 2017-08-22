@@ -21,21 +21,40 @@ public:
         ASSERTM(" last  available slot is correct " , allSlots[5] == 6);
 
         ParkingLotController pc1(6);
-        pc1.park("KA-01-HH-9999", "White");
 
         std::vector<int> slotsOccupiedByCarWithColor;
-        slotsOccupiedByCarWithColor = pc1.getSlotNumbersForCarsWithColor("White");
-        ASSERTM(" occupied slot is correct " , slotsOccupiedByCarWithColor[0] == 1);
+        //slotsOccupiedByCarWithColor = pc1.getSlotNumbersForCarsWithColor("White");
+        //ASSERTM(" occupied slot is correct " , slotsOccupiedByCarWithColor[0] == 1);
 
         std::vector<std::string> registrationNumberForCarsWithColor;
+        //registrationNumberForCarsWithColor = pc1.getRegistrationNumbersForCarsWithColor("White");
+        //ASSERTM(" occupied registration number is " , registrationNumberForCarsWithColor[0].compare("KA-01-HH-9999") == 0);
+
+        bool succ = false;
+
+        succ = pc1.park("KA-01-HH-9969", "White");
+        succ = pc1.park("KA-01-HH-9979", "Black");
+        succ = pc1.park("KA-01-HH-9989", "Blue");
+        succ = pc1.park("KA-01-HH-9994", "Red");
+        succ = pc1.park("KA-01-HH-9991", "Blue");
+        succ = pc1.park("KA-01-HH-9996", "Blue");
+
+        succ = pc1.park("KA-01-HH-9926", "White");
+
+        ASSERTM(" add successfully done " , succ == false);
+
         registrationNumberForCarsWithColor = pc1.getRegistrationNumbersForCarsWithColor("White");
         ASSERTM(" occupied registration number is " , registrationNumberForCarsWithColor[0].compare("KA-01-HH-9999") == 0);
 
-        pc1.park("KA-01-HH-9969", "White");
-        pc1.park("KA-01-HH-9979", "Black");
-        pc1.park("KA-01-HH-9989", "Blue");
-        pc1.park("KA-01-HH-9994", "Red");
-        pc1.park("KA-01-HH-9991", "Blue");
+        succ = pc1.releaseSlot(3);
+        succ = pc1.releaseSlot(4);
+        succ = pc1.releaseSlot(1);
+        succ = pc1.releaseSlot(2);
+        succ = pc1.releaseSlot(5);
+        succ = pc1.releaseSlot(6);
+
+        succ = pc1.releaseSlot(6);
+        ASSERTM(" deletion successfully done ", succ == true);
 
         slotsOccupiedByCarWithColor = pc1.getSlotNumbersForCarsWithColor("Blue");
         int n = slotsOccupiedByCarWithColor.size();
@@ -46,14 +65,5 @@ public:
         //ASSERTM(" first registration number car with color Black is " , registrationNumberForCarsWithColor[0].compare("KA-01-HH-9979") == 0);
         ASSERTM(" last registration number car with color White is " , registrationNumberForCarsWithColor[0].compare("KA-01-HH-9999") == 0);
 
-        pc1.releaseSlot(3);
-        pc1.releaseSlot(4);
-        pc1.park("KA-01-HH-9981", "Lilac");
-        registrationNumberForCarsWithColor = pc1.getRegistrationNumbersForCarsWithColor("Lilac");
-        ASSERTM(" first available slot is " , pc1.availableSlots.top() == 4);
-        ASSERTM(" first registration number car with color Lilac is " , registrationNumberForCarsWithColor[0].compare("KA-01-HH-9981") == 0);
-
-        slotsOccupiedByCarWithColor = pc1.getSlotNumbersForCarsWithColor("Lilac");
-        ASSERTM(" first occupied slot for color lilac is correct " , slotsOccupiedByCarWithColor.at(0) == 3);
     };
 };
