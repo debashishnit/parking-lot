@@ -9,6 +9,10 @@
 
 #include <iostream>
 
+ParkingLotController::ParkingLotController() {
+    // TODO Auto-generated constructor stub
+}
+
 ParkingLotController::ParkingLotController(int maxSlots) {
     // TODO Auto-generated constructor stub
     for(int availableSlot=1; availableSlot<=maxSlots; availableSlot++) {
@@ -35,19 +39,19 @@ std::vector<int> ParkingLotController::getAvailableSlots() {
     return slotAvailable;
 }
 
-bool ParkingLotController::park(std::string carRegistrationNumber, std::string color) {
+int ParkingLotController::park(std::string carRegistrationNumber, std::string color) {
     Car carWaitingToPark = Car(carRegistrationNumber, color);
 
     if(this->isSlotAvailable()) {
-        this->allotAvailableParkingSlot(carWaitingToPark);
+        int allotedSlot = this->allotAvailableParkingSlot(carWaitingToPark);
 
-        return true;
+        return allotedSlot;
     }
 
-    return false;
+    return -1;
 }
 
-void ParkingLotController::allotAvailableParkingSlot(Car carReadyToPark) {
+int ParkingLotController::allotAvailableParkingSlot(Car carReadyToPark) {
     int firstAvailableSlot = this->availableSlots.top();
 
     this->cars.insert(std::make_pair(firstAvailableSlot, carReadyToPark));
@@ -59,6 +63,8 @@ void ParkingLotController::allotAvailableParkingSlot(Car carReadyToPark) {
     ParkingQueryHelper::addToCarColorSlotMap(carReadyToPark, allotedSlot);
 
     ParkingQueryHelper::addToColorRegistrationNumberMap(carReadyToPark);
+
+    return firstAvailableSlot;
 }
 
 std::vector<std::string> ParkingLotController::getRegistrationNumbersForCarsWithColor(std::string color) {

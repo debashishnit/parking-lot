@@ -1,11 +1,2 @@
 <testsuites>
-	<testsuite name="AllTests" tests="3">
-		<testcase classname="AllTests" name="SlotTest"/>
-		<testcase classname="AllTests" name="CarTest"/>
-		<testcase classname="AllTests" name="ParkingLotControllerTest">
-			<failure message="../src/ParkingLotController_test.cpp:47 operator():  occupied registration number is ">
-operator():  occupied registration number is 
-			</failure>
-		</testcase>
-	</testsuite>
 </testsuites>

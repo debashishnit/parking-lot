@@ -26,9 +26,9 @@ public:
     ParkingLotController(int);
     virtual ~ParkingLotController();
 
-    bool park(std::string, std::string);
+    int park(std::string, std::string);
     bool isSlotAvailable();
-    void allotAvailableParkingSlot(Car);
+    int allotAvailableParkingSlot(Car);
 
     std::vector<int> getAvailableSlots();
 
