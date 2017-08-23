@@ -72,7 +72,7 @@ void readData(std::istream & file) {
             }
             case cmdRegistrationNumbersForCarsWithColor: {
                 std::vector<std::string> registrationNumberList;
-                registrationNumberList = pc.getRegistrationNumbersForCarsWithColor(args[0]);
+                registrationNumberList = ParkingQueryHelper::getRegistrationNumbersForCarsWithColor(args[0]);
                 std::string result = "";
                 for(int i=0; i<registrationNumberList.size(); i++) {
                     if(result != "") result += ", ";
@@ -84,7 +84,7 @@ void readData(std::istream & file) {
             }
             case cmdSlotNumbersForCarsWithColor: {
                 std::vector<int> slotNumbers;
-                slotNumbers = pc.getSlotNumbersForCarsWithColor(args[0]);
+                slotNumbers = ParkingQueryHelper::getSlotNumbersForCarsWithColor(args[0]);
                 std::string result = "";
                 for(int i=0; i<slotNumbers.size(); i++) {
                     if(result != "") result += ", ";
@@ -97,7 +97,7 @@ void readData(std::istream & file) {
             case cmdSlotNumberForRegistrationNumber: {
                 int slotNumber = -1;
 
-                if((slotNumber = pc.getSlotNumberForRegistrationNumber(args[0])) > 0) {
+                if((slotNumber = ParkingQueryHelper::getSlotNumberForRegistrationNumber(args[0])) > 0) {
                     std::cout << std::to_string(slotNumber) << std::endl;
                 } else {
                     std::cout << "Not Found." << std::endl;

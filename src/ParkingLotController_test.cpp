@@ -14,11 +14,6 @@ class ParkingLotControllerTest {
 public:
     ParkingLotControllerTest() {};
     void operator()() {
-        ParkingLotController pc(6);
-
-        std::vector<int> allSlots = pc.getAvailableSlots();
-        ASSERTM(" first available slot is correct" , allSlots[0] == 1);
-        ASSERTM(" last  available slot is correct " , allSlots[5] == 6);
 
         ParkingLotController pc1(6);
 
@@ -43,10 +38,10 @@ public:
 
         ASSERTM(" add successfully done " , succ == -1);
 
-        registrationNumberForCarsWithColor = pc1.getRegistrationNumbersForCarsWithColor("White");
+        registrationNumberForCarsWithColor = ParkingQueryHelper::getRegistrationNumbersForCarsWithColor("White");
         ASSERTM(" occupied registration number is " , registrationNumberForCarsWithColor[0].compare("KA-01-HH-9969") == 0);
 
-        ASSERTM(" slot occupied by car with registration number KA-01-HH-9991 is correct" , pc1.getSlotNumberForRegistrationNumber("KA-01-HH-9991") == 5);
+        ASSERTM(" slot occupied by car with registration number KA-01-HH-9991 is correct" , ParkingQueryHelper::getSlotNumberForRegistrationNumber("KA-01-HH-9991") == 5);
 
         succ = pc1.releaseSlot(3);
         succ = pc1.releaseSlot(4);
@@ -58,12 +53,12 @@ public:
         succ = pc1.releaseSlot(6);
         ASSERTM(" deletion successfully done ", succ == true);
 
-        slotsOccupiedByCarWithColor = pc1.getSlotNumbersForCarsWithColor("Blue");
+        slotsOccupiedByCarWithColor = ParkingQueryHelper::getSlotNumbersForCarsWithColor("Blue");
         int n = slotsOccupiedByCarWithColor.size();
         ASSERTM(" first occupied slot for color blue is correct " , slotsOccupiedByCarWithColor[0] == 4);
         ASSERTM(" last occupied slot for color blue is correct " , slotsOccupiedByCarWithColor[n-1] == 6);
 
-        registrationNumberForCarsWithColor = pc1.getRegistrationNumbersForCarsWithColor("White");
+        registrationNumberForCarsWithColor = ParkingQueryHelper::getRegistrationNumbersForCarsWithColor("White");
         //ASSERTM(" first registration number car with color Black is " , registrationNumberForCarsWithColor[0].compare("KA-01-HH-9979") == 0);
         ASSERTM(" last registration number car with color White is " , registrationNumberForCarsWithColor[0].compare("KA-01-HH-9999") == 0);
 
