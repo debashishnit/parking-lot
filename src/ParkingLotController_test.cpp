@@ -27,14 +27,14 @@ public:
 
         int succ = 0;
 
-        succ = pc1.park("KA-01-HH-9969", "White");
-        succ = pc1.park("KA-01-HH-9979", "Black");
-        succ = pc1.park("KA-01-HH-9989", "Blue");
-        succ = pc1.park("KA-01-HH-9994", "Red");
-        succ = pc1.park("KA-01-HH-9991", "Blue");
-        succ = pc1.park("KA-01-HH-9996", "Blue");
+        succ = pc1.allocateSlot("KA-01-HH-9969", "White");
+        succ = pc1.allocateSlot("KA-01-HH-9979", "Black");
+        succ = pc1.allocateSlot("KA-01-HH-9989", "Blue");
+        succ = pc1.allocateSlot("KA-01-HH-9994", "Red");
+        succ = pc1.allocateSlot("KA-01-HH-9991", "Blue");
+        succ = pc1.allocateSlot("KA-01-HH-9996", "Blue");
 
-        succ = pc1.park("KA-01-HH-9926", "White");
+        succ = pc1.allocateSlot("KA-01-HH-9926", "White");
 
         ASSERTM(" add successfully done " , succ == -1);
 

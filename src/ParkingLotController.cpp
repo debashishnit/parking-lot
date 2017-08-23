@@ -29,35 +29,31 @@ bool ParkingLotController::isSlotAvailable() {
     return !this->availableSlots.empty() ;
 }
 
-int ParkingLotController::park(std::string carRegistrationNumber, std::string color) {
-    Car carWaitingToPark = Car(carRegistrationNumber, color);
+int ParkingLotController::allocateSlot(std::string carRegistrationNumber, std::string color) {
+    Car carReadyToPark = Car(carRegistrationNumber, color);
 
     if(this->isSlotAvailable()) {
-        int allotedSlot = this->allotAvailableParkingSlot(carWaitingToPark);
+        int firstAvailableSlot = this->availableSlots.top();
 
-        return allotedSlot;
+        this->cars.insert(std::make_pair(firstAvailableSlot, carReadyToPark));
+
+        this->availableSlots.pop();
+
+        Slot allotedSlot = Slot(firstAvailableSlot);
+
+        ParkingQueryHelper::addToCarColorSlotMap(carReadyToPark, allotedSlot);
+
+        ParkingQueryHelper::addToColorRegistrationNumberMap(carReadyToPark);
+
+        ParkingQueryHelper::addToSlotNumberRegistrationNumberMap(carReadyToPark, allotedSlot);
+
+        return firstAvailableSlot;
     }
 
     return -1;
+
 }
 
-int ParkingLotController::allotAvailableParkingSlot(Car carReadyToPark) {
-    int firstAvailableSlot = this->availableSlots.top();
-
-    this->cars.insert(std::make_pair(firstAvailableSlot, carReadyToPark));
-
-    this->availableSlots.pop();
-
-    Slot allotedSlot = Slot(firstAvailableSlot);
-
-    ParkingQueryHelper::addToCarColorSlotMap(carReadyToPark, allotedSlot);
-
-    ParkingQueryHelper::addToColorRegistrationNumberMap(carReadyToPark);
-
-    ParkingQueryHelper::addToSlotNumberRegistrationNumberMap(carReadyToPark, allotedSlot);
-
-    return firstAvailableSlot;
-}
 
 bool ParkingLotController::releaseSlot(int slotNumber) {
     std::unordered_map<int, Car>::iterator it;

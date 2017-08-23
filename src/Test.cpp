@@ -53,7 +53,7 @@ void readData(std::istream & file) {
                 std::string registrationNumber = args[0];
                 std::string color = args[1];
                 std::cout << registrationNumber << " " << color << std::endl;
-                int allotedSlot = pc.park(registrationNumber, color);
+                int allotedSlot = pc.allocateSlot(registrationNumber, color);
                 if(allotedSlot > 0)
                     std::cout << "Allocated slot number: " << allotedSlot << std::endl;
                 else

@@ -7,19 +7,16 @@
 
 #include "../includes/ParkingQueryHelper.h"
 
-#include <iostream>
-
 std::unordered_map<std::string, std::vector<std::string> > ParkingQueryHelper::colorRegistrationNumberMap;
 std::unordered_map<std::string, std::vector<int> > ParkingQueryHelper::carColorSlotMap;
 std::unordered_map<std::string, int> ParkingQueryHelper::registrationNumberSlotNumberMap;
 
 ParkingQueryHelper::ParkingQueryHelper() {
-    // TODO Auto-generated constructor stub
 
 }
 
 ParkingQueryHelper::~ParkingQueryHelper() {
-    // TODO Auto-generated destructor stub
+
 }
 
 std::vector<std::string> ParkingQueryHelper::getRegistrationNumbersForCarsWithColor(std::string color) {

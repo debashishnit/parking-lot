@@ -28,9 +28,7 @@ public:
 
     bool isSlotAvailable();
 
-    int park(std::string, std::string);
-
-    int allotAvailableParkingSlot(Car);
+    int allocateSlot(std::string, std::string);
     bool releaseSlot(int);
 
     void showStatus();
