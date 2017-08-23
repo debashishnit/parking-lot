@@ -1,10 +1,3 @@
-/*
- * Car.h
- *
- *  Created on: Aug 22, 2017
- *      Author: debashish.g
- */
-
 
 #ifndef CAR_H_
 #define CAR_H_
@@ -24,4 +17,4 @@ public:
     std::string getRegistrationNumber();
 };
 
-#endif /* CAR_H_ */
+#endif

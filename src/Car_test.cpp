@@ -1,9 +1,3 @@
-/*
- * Car_test.cpp
- *
- *  Created on: Aug 22, 2017
- *      Author: debashish.g
- */
 
 #include "cute.h"
 #include "../includes/Car.h"

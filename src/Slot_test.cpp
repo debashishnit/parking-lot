@@ -1,9 +1,4 @@
-/*
- * Slot_test.cpp
- *
- *  Created on: Aug 21, 2017
- *      Author: debashish.g
- */
+
 #include "cute.h"
 #include "../includes/Slot.h"
 

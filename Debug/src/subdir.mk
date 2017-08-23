@@ -6,35 +6,35 @@
 CPP_SRCS += \
 ../src/Car.cpp \
 ../src/Car_test.cpp \
+../src/Main.cpp \
 ../src/ParkingLotController.cpp \
 ../src/ParkingLotController_test.cpp \
 ../src/ParkingQueryHelper.cpp \
-../src/ParkingQueryHelper_test.cpp \
 ../src/Slot.cpp \
 ../src/Slot_test.cpp \
-../src/Test.cpp 
+../src/Utilities.cpp 
 
 OBJS += \
 ./src/Car.o \
 ./src/Car_test.o \
+./src/Main.o \
 ./src/ParkingLotController.o \
 ./src/ParkingLotController_test.o \
 ./src/ParkingQueryHelper.o \
-./src/ParkingQueryHelper_test.o \
 ./src/Slot.o \
 ./src/Slot_test.o \
-./src/Test.o 
+./src/Utilities.o 
 
 CPP_DEPS += \
 ./src/Car.d \
 ./src/Car_test.d \
+./src/Main.d \
 ./src/ParkingLotController.d \
 ./src/ParkingLotController_test.d \
 ./src/ParkingQueryHelper.d \
-./src/ParkingQueryHelper_test.d \
 ./src/Slot.d \
 ./src/Slot_test.d \
-./src/Test.d 
+./src/Utilities.d 
 
 
 # Each subdirectory must supply rules for building sources it contributes

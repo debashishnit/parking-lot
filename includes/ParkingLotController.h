@@ -1,9 +1,3 @@
-/*
- * ParkingLotController.h
- *
- *  Created on: Aug 22, 2017
- *      Author: debashish.g
- */
 
 #ifndef PARKINGLOTCONTROLLER_H_
 #define PARKINGLOTCONTROLLER_H_
@@ -34,4 +28,4 @@ public:
     void showStatus();
 };
 
-#endif /* PARKINGLOTCONTROLLER_H_ */
+#endif

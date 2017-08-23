@@ -1,9 +1,3 @@
-/*
- * Slot.h
- *
- *  Created on: Aug 19, 2017
- *      Author: debashish.g
- */
 
 #ifndef SLOT_H_
 #define SLOT_H_
@@ -18,4 +12,4 @@ public:
     int getSlotNumber();
 };
 
-#endif /* SLOT_H_ */
+#endif

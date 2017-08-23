@@ -1,20 +1,14 @@
-/*
- * ParkingLotController.cpp
- *
- *  Created on: Aug 22, 2017
- *      Author: debashish.g
- */
 
 #include "../includes/ParkingLotController.h"
 
 #include <iostream>
 
 ParkingLotController::ParkingLotController() {
-    // TODO Auto-generated constructor stub
+
 }
 
 ParkingLotController::ParkingLotController(int maxSlots) {
-    // TODO Auto-generated constructor stub
+
     for(int availableSlot=1; availableSlot<=maxSlots; availableSlot++) {
         this->availableSlots.push(availableSlot);
     }
@@ -22,7 +16,7 @@ ParkingLotController::ParkingLotController(int maxSlots) {
 }
 
 ParkingLotController::~ParkingLotController() {
-    // TODO Auto-generated destructor stub
+
 }
 
 bool ParkingLotController::isSlotAvailable() {

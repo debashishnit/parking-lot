@@ -1,9 +1,3 @@
-/*
- * ParkingQueryHelper.h
- *
- *  Created on: Aug 22, 2017
- *      Author: debashish.g
- */
 
 #ifndef PARKINGQUERYHELPER_H_
 #define PARKINGQUERYHELPER_H_
@@ -37,4 +31,4 @@ public:
     static void deleteFromSlotNumberRegistrationNumberMap(Car);
 };
 
-#endif /* PARKINGQUERYHELPER_H_ */
+#endif
